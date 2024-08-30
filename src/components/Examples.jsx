@@ -1,12 +1,13 @@
 import { useState } from "react";
 
 import TabButton from "./TabButton";
+import Section from "./Section";
 import { EXAMPLES } from "../data";
 
 export default function Examples() {
   // hooks like useState should be declared right at top level of the component functions,
   // and not in inner functions, conditionals or loop
-  
+
   const [selectedTopic, setSelectedTopic] = useState(null);
 
   let tabContent = <p>Please select a topic.</p>;
@@ -26,8 +27,7 @@ export default function Examples() {
   }
 
   return (
-    <section id="examples">
-      <h2>Examples</h2>
+    <Section title="Examples" id="examples">
       <menu>
         <TabButton isSelected={selectedTopic === 'components'} onSelect={() => handleSelect('components')}>Components</TabButton>
         <TabButton isSelected={selectedTopic === 'jsx'}        onSelect={() => handleSelect('jsx')       }>JSX</TabButton>
@@ -35,6 +35,6 @@ export default function Examples() {
         <TabButton isSelected={selectedTopic === 'state'}      onSelect={() => handleSelect('state')     }>State</TabButton>
       </menu>
       {tabContent}
-    </section>
+    </Section>
   );
 }
