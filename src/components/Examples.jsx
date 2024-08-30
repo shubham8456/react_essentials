@@ -30,7 +30,7 @@ export default function Examples() {
   return (
     <Section title="Examples" id="examples">
       <Tabs
-        ButtonsContainer="menu"
+        // ButtonsContainer="menu" - "menu was later set as default value as per Lecture 69"
         // ButtonsContainer={Section}
         // ButtonsContainer if is a custom component, we pass it in curly braces
         buttons={
