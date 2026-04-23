@@ -1,0 +1,17 @@
+services:
+  react-app:
+    image: node:18.20.8-slim
+    container_name: react-essentials
+    ports:
+      - "5173:5173"
+    volumes:
+      - .:/app:Z
+    working_dir: /app
+    command: sh -c "npm install && npm run dev -- --host"
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:5173 || exit 1"]
+      interval: 10s
+      timeout: 8s
+      retries: 5
+      start_period: 180s # Give npm install some time before starting checks
+
